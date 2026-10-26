@@ -1,0 +1,103 @@
+:root {
+  --bg: #0f1a1c;
+  --surface: #172528;
+  --text: #e8f3f2;
+  --muted: #8fa9a8;
+  --accent: #f5a524;
+  --accent-text: #1a1204;
+  --line: #264044;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4faf9;
+    --surface: #ffffff;
+    --text: #123033;
+    --muted: #5b7a7a;
+    --accent: #0f8b8d;
+    --accent-text: #ffffff;
+    --line: #cfe3e2;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Sticky top bar: brand left, search right */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 14px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand h1 { margin: 0; font-size: 1.6rem; color: var(--accent); }
+.tagline { margin: 2px 0 0; font-size: 0.9rem; color: var(--muted); }
+
+.search { display: flex; gap: 8px; flex: 1 1 320px; max-width: 520px; }
+
+#search-input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+#search-input:focus { outline: 2px solid var(--accent); }
+
+button {
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-text);
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.1); }
+.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+
+/* Quick-pick chips */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 24px 0; }
+.chip {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+main { padding: 16px 24px 48px; }
+.count { color: var(--muted); font-size: 0.9rem; }
+.empty { text-align: center; margin: 48px 0; color: var(--muted); font-size: 1.1rem; }
+
+/* Responsive grid */
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
