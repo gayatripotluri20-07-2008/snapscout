@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnapScout – Find the perfect picture</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>SnapScout</h1>
+      <p class="tagline">Type a topic, scout the best pictures.</p>
+    </div>
+
+    <form id="search-form" class="search">
+      <label for="search-input" class="sr-only">Search for images</label>
+      <input id="search-input" type="search" placeholder="Try “mountains” or “street food”" />
+      <button id="search-btn" type="submit">Search</button>
+      <button id="clear-btn" type="reset" class="ghost">Clear</button>
+    </form>
+  </header>
+
+  <nav class="chips" aria-label="Quick picks">
+    <button type="button" class="chip">Nature</button>
+    <button type="button" class="chip">Cities</button>
+    <button type="button" class="chip">Animals</button>
+    <button type="button" class="chip">Food</button>
+  </nav>
+
+  <main>
+    <p id="result-count" class="count">Showing 0 results</p>
+    <p id="empty-state" class="empty">🔭 Search above to start scouting.</p>
+    <section id="results" aria-live="polite"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
